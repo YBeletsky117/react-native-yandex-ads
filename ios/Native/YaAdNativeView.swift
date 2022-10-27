@@ -55,7 +55,6 @@ class YaAdNativeView: UIView {
     
     @objc func setupView () {
         DispatchQueue.main.async {
-            print("Yana: Start load AD")
             guard
                 let adUnitID = self.adUnitId,
                 let height = self.height,
@@ -70,7 +69,7 @@ class YaAdNativeView: UIView {
             self.adLoader.delegate = self
             
             let requestConfiguration = YMAMutableNativeAdRequestConfiguration(adUnitID: adUnitID)
-            requestConfiguration.parameters = [ "preferable-height": String(describing: height), "preferable-width": String(describing: width), "theme":"dark" ]
+            requestConfiguration.parameters = ["preferable-height": String(describing: height), "preferable-width": String(describing: width)]
             guard let onWillLoad = self.onWillLoad else { return }
             onWillLoad(["adUnitID": self.adUnitId!])
             self.adLoader.loadAd(with: requestConfiguration)
@@ -93,7 +92,6 @@ class YaAdNativeView: UIView {
 extension YaAdNativeView: YMANativeAdLoaderDelegate {
     func nativeAdLoader(_ loader: YMANativeAdLoader, didLoad ad: YMANativeAd) {
         guard let adView = self.adView else { return }
-        print("Yana: Loaded native ad")
         ad.delegate = self
         adView.isHidden = false
         adView.ad = ad
@@ -108,7 +106,7 @@ extension YaAdNativeView: YMANativeAdLoaderDelegate {
         
         if let media = assets.media {
             //you can use the aspect ratio if you need it to determine the size of media view.
-            print(String(format: "Yana: Media aspect ratio: %.2f", media.aspectRatio))
+            print(String(format: "Media aspect ratio: %.2f", media.aspectRatio))
         }
     }
     

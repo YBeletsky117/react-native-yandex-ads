@@ -711,9 +711,9 @@
     to-fast-properties "^2.0.0"
 
 "@beletsky/react-native-yandex-ads@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@beletsky/react-native-yandex-ads/-/react-native-yandex-ads-0.1.4.tgz#0047174c93ba93d6d0e55a191ba8e9a5220854f3"
-  integrity sha512-DT0wEH/jmNR0uXQUY15m34Xs+kFXEvAJYx31XugGyt6iDpbRWVyd640jZbXiptIp0kjWVmjwPz1LBEmB3Qi6/g==
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@beletsky/react-native-yandex-ads/-/react-native-yandex-ads-0.1.5.tgz#b9718b249b9c23b8a2ebfc632afa643d67e31ea5"
+  integrity sha512-bWLbMg7KXg7Y5wkC/4Q6RBcyz4QdYR8kceK9/o6Jbs0jZ7ErT3kF12v/Og4jUtWq655B3SiLDZS8thF89Iau5A==
 
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
