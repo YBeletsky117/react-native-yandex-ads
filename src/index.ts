@@ -2,6 +2,7 @@ import { initialize } from './utils'
 
 export { default as YaRewardedAds } from './rewarded'
 export { default as YaInterstitialAds } from './interstitial'
+export { default as AdBanner } from './banner'
 export {
   AdBannerType,
   YA_NATIVE_COMPONENTS as NativeAdTypes

@@ -68,6 +68,7 @@ class YaAdNativeView: UIView {
             self.adLoader = YMANativeAdLoader()
             self.adLoader.delegate = self
             
+            
             let requestConfiguration = YMAMutableNativeAdRequestConfiguration(adUnitID: adUnitID)
             requestConfiguration.parameters = ["preferable-height": String(describing: height), "preferable-width": String(describing: width)]
             guard let onWillLoad = self.onWillLoad else { return }
@@ -94,9 +95,16 @@ extension YaAdNativeView: YMANativeAdLoaderDelegate {
         guard let adView = self.adView else { return }
         ad.delegate = self
         adView.isHidden = false
+        
+        if (self.width != nil) {
+            let heightAd = YMANativeBannerView.height(with: ad, width: CGFloat(truncating: self.width!), appearance: nil)
+            adView.frame = CGRect(x: 0, y: 0, width: CGFloat(truncating: self.width!), height: heightAd)
+        }
+        
         adView.ad = ad
-        adView.frame = CGRect(x: 0, y: 0, width: CGFloat(truncating: self.width!), height: CGFloat(truncating: self.height!))
-        frame = CGRect(x: 0, y: 0, width: CGFloat(truncating: self.width!), height: CGFloat(truncating: self.height!))
+        // TODO
+//        adView.frame = CGRect(x: 0, y: 0, width: CGFloat(truncating: self.width!), height: CGFloat(truncating: self.height!))
+//        frame = CGRect(x: 0, y: 0, width: CGFloat(truncating: self.width!), height: CGFloat(truncating: self.height!))
         addAdView()
         guard let onDidLoad = self.onDidLoad else { return }
         onDidLoad(["adUnitID": self.adUnitId!])
@@ -122,13 +130,11 @@ extension YaAdNativeView: YMANativeAdLoaderDelegate {
 extension YaAdNativeView: YMANativeAdDelegate {
     
     func nativeAdDidClick(_ ad: YMANativeAd) {
-        print("Yana: Ad clicked")
         guard let onClick = self.onClick else { return }
         onClick(["adUnitID": self.adUnitId!])
     }
     
     func nativeAd(_ ad: YMANativeAd, didTrackImpressionWith impressionData: YMAImpressionData?) {
-        print("Yana: Impression tracked")
         guard let onDidTrackImpression = self.onDidTrackImpression else { return }
         onDidTrackImpression([
             "adUnitID": self.adUnitId!,
@@ -137,25 +143,21 @@ extension YaAdNativeView: YMANativeAdDelegate {
     }
     
     func nativeAdWillLeaveApplication(_ ad: YMANativeAd) {
-        print("Yana: Will leave application")
         guard let onWillLeaveApp = self.onWillLeaveApp else { return }
         onWillLeaveApp(["adUnitID": self.adUnitId!])
     }
     
     func nativeAd(_ ad: YMANativeAd, willPresentScreen viewController: UIViewController?) {
-        print("Yana: Will present screen")
         guard let onWillPresent = self.onWillPresent else { return }
         onWillPresent(["adUnitID": self.adUnitId!])
     }
     
     func nativeAd(_ ad: YMANativeAd, didDismissScreen viewController: UIViewController?) {
-        print("Yana: Did dismiss screen")
         guard let onDidDismiss = self.onDidDismiss else { return }
         onDidDismiss(["adUnitID": self.adUnitId!])
     }
     
     func close(_ ad: YMANativeAd) {
-        print("Yana: Did close")
         adView?.isHidden = true
         guard let onClose = self.onClose else { return }
         onClose(["adUnitID": self.adUnitId!])
