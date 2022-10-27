@@ -1,8 +1,8 @@
 // @ts-nocheck
 import React, { FC } from 'react'
-import { Platform } from 'react-native'
+import { Platform, requireNativeComponent } from 'react-native'
 import type { AdBannerType } from '../resources'
-import { AdBannerNativeComponent } from '../common'
+// import { AdBannerNativeComponent } from '../common'
 import type {
   NativeEventType,
   NativeFailedEventType,
@@ -10,6 +10,7 @@ import type {
 } from '../common/AdBannerNativeComponent'
 import RES from '../resources'
 
+const RNYAMBanner = requireNativeComponent(RES.VIEW_MANAGERS.BANNER)
 type Props = {
   adUnitId: string
   size?: AdBannerType
@@ -71,7 +72,7 @@ const Banner: FC<Props> = ({
   }
 
   return (
-    <AdBannerNativeComponent
+    <RNYAMBanner
       {...{
         adUnitID: adUnitId,
         ...(customSize

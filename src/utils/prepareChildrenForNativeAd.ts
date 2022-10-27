@@ -1,6 +1,7 @@
 // @ts-nocheck
 import type { ReactNode } from 'react'
 import * as React from 'react'
+import { prepareChildForNativeAd } from './prepareChildForNativeAd'
 
 export const prepareChildrenForNativeAd = (
   children: ReactNode | ReactNode[],
