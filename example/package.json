@@ -9,7 +9,7 @@
     "pods": "pod-install --quiet"
   },
   "dependencies": {
-    "@beletsky/react-native-yandex-ads": "^0.1.3",
+    "@beletsky/react-native-yandex-ads": "^0.1.4",
     "react": "18.1.0",
     "react-native": "0.70.4"
   },

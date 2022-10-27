@@ -710,10 +710,10 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@beletsky/react-native-yandex-ads@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@beletsky/react-native-yandex-ads/-/react-native-yandex-ads-0.1.3.tgz#d01c924b892116f1fcf8c3ae4a06b3bac4fc627d"
-  integrity sha512-QLx203jaQrLTNGCeaC+5S0F89/0uibF+E2eHnobU2+1B5WRKkDRv3GCLAWTnxsRZhdUlN05/koDlIsaEFuedHg==
+"@beletsky/react-native-yandex-ads@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@beletsky/react-native-yandex-ads/-/react-native-yandex-ads-0.1.4.tgz#0047174c93ba93d6d0e55a191ba8e9a5220854f3"
+  integrity sha512-DT0wEH/jmNR0uXQUY15m34Xs+kFXEvAJYx31XugGyt6iDpbRWVyd640jZbXiptIp0kjWVmjwPz1LBEmB3Qi6/g==
 
 "@hapi/hoek@^9.0.0":
   version "9.3.0"

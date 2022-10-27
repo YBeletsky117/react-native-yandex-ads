@@ -12,7 +12,7 @@
 
 @interface RCT_EXTERN_MODULE(YaAdNativeViewManager, RCTViewManager)
 
-RCT_EXPORT_VIEW_PROPERTY(adUnitID, NSString)
+RCT_EXPORT_VIEW_PROPERTY(adUnitId, NSString)
 RCT_EXPORT_VIEW_PROPERTY(width, NSNumber)
 RCT_EXPORT_VIEW_PROPERTY(height, NSNumber)
 
