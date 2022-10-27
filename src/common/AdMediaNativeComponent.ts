@@ -12,14 +12,14 @@ const globalView = getCachedNativeView<typeof AdMediaNativeComponent>()
 
 if (__DEV__ && !globalView) {
   AdMediaNativeComponent = requireNativeComponent<AdMediaComponentType>(
-    RES.VIEW_MANAGERS.MEDIA
+    RES.VIEW_MANAGERS.MEDIA!
   )
   cacheNativeView<typeof AdMediaNativeComponent>(AdMediaNativeComponent)
 } else if (__DEV__ && getCachedNativeView<typeof AdMediaNativeComponent>()) {
   AdMediaNativeComponent = getCachedNativeView<typeof AdMediaNativeComponent>()
 } else {
   AdMediaNativeComponent = requireNativeComponent<AdMediaComponentType>(
-    RES.VIEW_MANAGERS.MEDIA
+    RES.VIEW_MANAGERS.MEDIA!
   )
 }
 

@@ -7,9 +7,10 @@
 
 import Foundation
 import YandexMobileAds
+import React
 
 @objc (YaAdRewardedModule)
-class YaAdRewardedModule : RCTEventEmitter {
+class YaAdRewardedModule: RCTEventEmitter {
     var rewardedAd: YMARewardedAd?
     
     private var _resolve: RCTPromiseResolveBlock? = nil

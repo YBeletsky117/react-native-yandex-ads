@@ -16,7 +16,7 @@ const globalView = getCachedNativeView<typeof AdContainerNativeComponent>()
 
 if (__DEV__ && !globalView) {
   AdContainerNativeComponent = requireNativeComponent<AdContainerComponentType>(
-    RES.VIEW_MANAGERS.CONTAINER
+    RES.VIEW_MANAGERS.CONTAINER!
   )
   cacheNativeView<typeof AdContainerNativeComponent>(AdContainerNativeComponent)
 } else if (
@@ -27,7 +27,7 @@ if (__DEV__ && !globalView) {
     getCachedNativeView<typeof AdContainerNativeComponent>()
 } else {
   AdContainerNativeComponent = requireNativeComponent<AdContainerComponentType>(
-    RES.VIEW_MANAGERS.CONTAINER
+    RES.VIEW_MANAGERS.CONTAINER!
   )
 }
 

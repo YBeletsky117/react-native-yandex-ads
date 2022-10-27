@@ -8,9 +8,10 @@
 
 import Foundation
 import YandexMobileAds
+import React
 
 @objc (YaAdInterstitialModule)
-class YaAdInterstitialModule : RCTEventEmitter {
+class YaAdInterstitialModule: RCTEventEmitter {
     var interstitialAd: YMAInterstitialAd!
     
     private var _resolve: RCTPromiseResolveBlock? = nil

@@ -55,6 +55,7 @@ class YaAdNativeView: UIView {
     
     @objc func setupView () {
         DispatchQueue.main.async {
+            print("Yana: Start load AD")
             guard
                 let adUnitID = self.adUnitID,
                 let height = self.height,

@@ -1,10 +1,6 @@
-import {
-  HostComponent,
-  Platform,
-  requireNativeComponent,
-  ViewProps
-} from 'react-native'
+import { HostComponent, requireNativeComponent, ViewProps } from 'react-native'
 import { cacheNativeView, getCachedNativeView } from '../utils'
+import RES from '../resources'
 
 export interface AdNativeProps extends ViewProps {
   adUnitId: string
@@ -38,20 +34,14 @@ const globalView = getCachedNativeView<typeof AdNativeComponent>()
 
 if (__DEV__ && !globalView) {
   AdNativeComponent = requireNativeComponent<AdNativeProps>(
-    Platform.select({
-      ios: 'NativeAdView',
-      android: 'NativeAdViewManager'
-    }) as string
+    RES.VIEW_MANAGERS.NATIVE
   )
   cacheNativeView<typeof AdNativeComponent>(AdNativeComponent)
 } else if (__DEV__ && getCachedNativeView<typeof AdNativeComponent>()) {
   AdNativeComponent = getCachedNativeView<typeof AdNativeComponent>()
 } else {
   AdNativeComponent = requireNativeComponent<AdNativeProps>(
-    Platform.select({
-      ios: 'NativeAdView',
-      android: 'NativeAdViewManager'
-    }) as string
+    RES.VIEW_MANAGERS.NATIVE
   )
 }
 

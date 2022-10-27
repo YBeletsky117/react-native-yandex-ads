@@ -1,3 +1,5 @@
+import { Platform } from 'react-native'
+
 enum RewardedEventTypes {
   didReward = 'onDidReward',
   didLoad = 'onDidLoad',
@@ -61,14 +63,20 @@ const RES = {
     INTERSTITIAL: 'YaAdInterstitialModule',
     REWARDED: 'YaAdRewardedModule'
   },
-  VIEW_MANAGERS: {
-    NATIVE: 'YaAdNativeViewManager',
-    CONTAINER: 'YaAdContainerViewManager', // only Android
-    MEDIA: 'YaAdMediaViewManager', // only Android
-    IMAGE: 'YaAdImageViewManager', // only Android
-    TEXT: 'YaAdTextViewManager', // only Android
-    BANNER: 'YaAdBannerViewManager'
-  },
+  VIEW_MANAGERS: Platform.select({
+    android: {
+      NATIVE: 'YaAdNativeViewManager',
+      CONTAINER: 'YaAdContainerViewManager', // only Android
+      MEDIA: 'YaAdMediaViewManager', // only Android
+      IMAGE: 'YaAdImageViewManager', // only Android
+      TEXT: 'YaAdTextViewManager', // only Android
+      BANNER: 'YaAdBannerViewManager'
+    },
+    default: {
+      NATIVE: 'YaAdNativeView',
+      BANNER: 'YaAdBannerView'
+    }
+  }),
   RewardedEventTypes,
   bannerWidth,
   bannerHeight,
