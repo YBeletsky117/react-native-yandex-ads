@@ -1,6 +1,6 @@
 {
   "name": "react-native-yandex-ads",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -8,7 +8,7 @@
   "react-native": "src/index",
   "source": "src/index",
   "files": [
-    "src",
+    "src2",
     "lib",
     "android",
     "ios",
@@ -117,10 +117,11 @@
       "prettier/prettier": [
         "error",
         {
+          "semi": false,
           "quoteProps": "consistent",
           "singleQuote": true,
           "tabWidth": 2,
-          "trailingComma": "es5",
+          "trailingComma": "none",
           "useTabs": false
         }
       ]
@@ -131,10 +132,11 @@
     "lib/"
   ],
   "prettier": {
+    "semi": false,
     "quoteProps": "consistent",
     "singleQuote": true,
     "tabWidth": 2,
-    "trailingComma": "es5",
+    "trailingComma": "none",
     "useTabs": false
   },
   "react-native-builder-bob": {

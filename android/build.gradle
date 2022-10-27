@@ -134,6 +134,10 @@ dependencies {
     //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+  implementation 'com.yandex.android:mobileads:5.2.1'
+  implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+  implementation 'com.google.android.gms:play-services-ads:20.5.0'
 // From node_modules
 }
 

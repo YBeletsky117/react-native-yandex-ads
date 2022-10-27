@@ -1,19 +1,28 @@
 package com.reactnativeyandexads
-import android.graphics.Color
-import android.view.View
-import com.facebook.react.uimanager.SimpleViewManager
-import com.facebook.react.uimanager.ThemedReactContext
-import com.facebook.react.uimanager.annotations.ReactProp
+import android.util.Log
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
+import com.yandex.mobile.ads.common.MobileAds
+import com.reactnativeyandexads.utils.Res.MAIN_REACT_CLASS
 
-class YandexAdsViewManager : SimpleViewManager<View>() {
-  override fun getName() = "YandexAdsView"
+class YandexAdsViewManager(context: ReactApplicationContext) : ReactContextBaseJavaModule(context) {
 
-  override fun createViewInstance(reactContext: ThemedReactContext): View {
-    return View(reactContext)
-  }
+  private val reactContext: ReactApplicationContext = context
 
-  @ReactProp(name = "color")
-  fun setColor(view: View, color: String) {
-    view.setBackgroundColor(Color.parseColor(color))
+  override fun getName() = MAIN_REACT_CLASS
+
+  @ReactMethod
+  fun initialize(
+    isDebug: Boolean,
+    userLocation: Boolean,
+    userConsent: Boolean,
+  ) {
+    MobileAds.initialize(reactContext) {
+      Log.d("RNYandexAdsMobile","Yandex Ads initialized")
+    }
+    MobileAds.enableDebugErrorIndicator(isDebug)
+    MobileAds.setLocationConsent(userLocation)
+    MobileAds.setUserConsent(userConsent)
   }
 }
