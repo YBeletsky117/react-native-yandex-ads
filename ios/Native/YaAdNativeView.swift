@@ -95,6 +95,7 @@ extension YaAdNativeView: YMANativeAdLoaderDelegate {
         ad.delegate = self
         adView.isHidden = false
         adView.ad = ad
+        adView.frame = CGRect(x: 0, y: 0, width: CGFloat(truncating: self.width!), height: CGFloat(truncating: self.height!))
         frame = CGRect(x: 0, y: 0, width: CGFloat(truncating: self.width!), height: CGFloat(truncating: self.height!))
         addAdView()
         guard let onDidLoad = self.onDidLoad else { return }
