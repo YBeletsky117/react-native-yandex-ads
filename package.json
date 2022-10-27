@@ -1,5 +1,5 @@
 {
-  "name": "react-native-yandex-ads",
+  "name": "@beletsky/react-native-yandex-ads",
   "version": "0.1.2",
   "description": "test",
   "main": "lib/commonjs/index",
@@ -48,6 +48,7 @@
   },
   "homepage": "https://github.com/YBeletsky117/react-native-yandex-ads#readme",
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
