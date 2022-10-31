@@ -38,7 +38,11 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "yandex",
+    "ads",
+    "mobile-ads",
+    "native-ads"
   ],
   "repository": "https://github.com/YBeletsky117/react-native-yandex-ads",
   "author": "Yaroslav Beletsky <yaroslav_beletsky@mail.ru> (https://toberemove.com)",
