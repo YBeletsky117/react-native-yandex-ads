@@ -4,8 +4,11 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 
 jobs:
   build:
@@ -15,8 +18,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci
-      - run: npm test
+      - name: Install dependencies
+      - run: yarn install
+      - name: Start test project
+      - run: yarn test
 
   publish-npm:
     needs: build
@@ -27,7 +32,27 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
+      - name: Install dependencies
+      - run: yarn install --frozen-lockfile
+      - name: Try to release it into npmjs
+      - run: yarn release-it
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+  publish-github:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@beletsky'
+      - name: Install dependencies
+      - run: yarn install --frozen-lockfile
+      - name: Try to release it into GitHub
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

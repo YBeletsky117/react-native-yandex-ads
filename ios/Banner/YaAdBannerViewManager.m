@@ -11,6 +11,7 @@
 @interface RCT_EXTERN_MODULE(YaAdBannerViewManager, RCTViewManager)
 
 RCT_EXPORT_VIEW_PROPERTY(place, NSString)
+RCT_EXPORT_VIEW_PROPERTY(requestParams, NSDictionary)
 
 RCT_EXPORT_VIEW_PROPERTY(adUnitID, NSString)
 RCT_EXPORT_VIEW_PROPERTY(size, NSString)

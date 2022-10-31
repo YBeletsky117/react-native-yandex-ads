@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-yandex-ads": ["./src/index"]
+      "@beletsky/react-native-yandex-ads": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

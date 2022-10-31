@@ -29,6 +29,7 @@ type AdBannerComponentType = {
   size?: AdBannerType
   style: ViewProps['style']
   place?: 'top' | 'botttom'
+  requestParams?: Record<string, string>
   onDidLoad: (event: NativeEventType) => void
   onClick: (event: NativeEventType) => void
   onDidTrackImpression: (event: NativeImpressionEventType) => void

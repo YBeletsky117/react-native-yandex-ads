@@ -19,6 +19,22 @@ yarn add @beletsky/react-native-yandex-ads@beta
 
 ## Usage
 
+First of all, you need to initialize the Yandex Ads Mobile library
+
+```jsx
+import React, { useEffect } from 'react';
+import YandexAds from "@beletsky/react-native-yandex-ads"
+
+// ...
+
+export function App() {
+  useEffect(() => {
+    YandexAds.initialize()
+  }, [])
+  return //...
+}
+```
+
 # Native
 
 <p style='color: #ffffff; background-color: rgb(183,47,47)'>Attention, in this version, the display of ads in Android and iOS is different, we are making every effort to create a single visual part</p>
@@ -27,28 +43,28 @@ yarn add @beletsky/react-native-yandex-ads@beta
 
 | Property                  | Type                                    | Required          | Default     |
 |---------------------------|:---------------------------------------:|------------------:|------------:|
-| adUnitId                  | string                                  |✅                 | none        |
-| width                     | number                                  |✅                 | none        |
-| height                    | number                                  |✅                 | none        |
-| config (only Android)     | typeof defConfig (see deep)             |✅                 | none        |
+| adUnitId                  | string                                  |❗️                 | none        |
+| width                     | number                                  |❗️                 | none        |
+| height                    | number                                  |❗️                 | none        |
+| config (only Android)     | typeof defConfig (see deep)             |❗️                 | none        |
 
 ## `AdNative.Image` (only Android)
 
 | Property                  | Type                                    | Required          | Default     |
 |---------------------------|:---------------------------------------:|------------------:|------------:|
-| uniqYandexId              | NativeAdTypes                           |✅                 | none        |
+| uniqYandexId              | NativeAdTypes                           |❗️                 | none        |
 
 ## `AdNative.Media` (only Android)
 
 | Property                  | Type                                    | Required          | Default     |
 |---------------------------|:---------------------------------------:|------------------:|------------:|
-| uniqYandexId              | NativeAdTypes                           |✅                 | none        |
+| uniqYandexId              | NativeAdTypes                           |❗️                 | none        |
 
 ## `AdNative.Text` (only Android)
 
 | Property                  | Type                                    | Required          | Default     |
 |---------------------------|:---------------------------------------:|------------------:|------------:|
-| uniqYandexId              | NativeAdTypes                           |✅                 | none        |
+| uniqYandexId              | NativeAdTypes                           |❗️                 | none        |
 
 ## for Android
 
@@ -273,18 +289,19 @@ const styles = StyleSheet.create({
 
 | Property                  | Type                                    | Required          | Default     |
 |---------------------------|:---------------------------------------:|------------------:|------------:|
-| adUnitId                  | string                                  |✅                 | none        |
-| place (only IOS)          | 'top' or 'bottom'                       |🚫                 | 'top'       |
-| size                      | AdBannerType                            |✅ (or customSize) | none        |
-| customSize                | { width, height }                       |✅ (or size)       | none        |
-| onDidLoad                 | (adId?: string) => void                 |🚫                 | none        |
-| onClick                   | (adId?: string) => void                 |🚫                 | none        |
-| onWillLeaveApp            | (adId?: string) => void                 |🚫                 | none        |
-| onWillPresent             | (adId?: string) => void                 |🚫                 | none        |
-| onDidDismiss              | (adId?: string) => void                 |🚫                 | none        |
-| onDidReturnedToApplication| (adId?: string) => void                 |🚫                 | none        |
-| onDidTrackImpression      | (adId?: string, data?: string) => void  |🚫                 | none        |
-| onDidFailLoading          | (adId?: string, error?: string) => void |🚫                 | none        |
+| adUnitId                  | string                                  |❗️                 | none        |
+| place (only IOS)          | 'top' or 'bottom'                       |❔️                 | 'top'       |
+| size                      | AdBannerType                            |❗️ (or customSize) | none        |
+| customSize                | { width, height }                       |❗️ (or size)       | none        |
+| requestParams             | { [key: string]: string }               |❔️                 | none        |
+| onDidLoad                 | (adId?: string) => void                 |❔️                 | none        |
+| onClick                   | (adId?: string) => void                 |❔️                 | none        |
+| onWillLeaveApp            | (adId?: string) => void                 |❔️                 | none        |
+| onWillPresent             | (adId?: string) => void                 |❔️                 | none        |
+| onDidDismiss              | (adId?: string) => void                 |❔️                 | none        |
+| onDidReturnedToApplication| (adId?: string) => void                 |❔️                 | none        |
+| onDidTrackImpression      | (adId?: string, data?: string) => void  |❔️                 | none        |
+| onDidFailLoading          | (adId?: string, error?: string) => void |❔️                 | none        |
 
 ```jsx
 import React from 'react'
@@ -292,47 +309,51 @@ import { AdBanner } from "@beletsky/react-native-yandex-ads";
 
 // ...
 
-return (
-  <AdBanner
-    onDidLoad={() => console.log('on did load')}
-    onDidFailLoading={() => console.log('failed load')}
-    adUnitId={"R-M-ADS_ID"}
-    size={AdBannerType.BANNER_300x300}
-  />
-)
+export function App() {
+  return (
+    <AdBanner
+      onDidLoad={() => console.log('on did load')}
+      onDidFailLoading={() => console.log('failed load')}
+      adUnitId={"R-M-ADS_ID"}
+      size={AdBannerType.BANNER_300x300}
+    />
+  )
+}
+
 ```
 
 # Banner
 
 | Property                  | Type                                    | Required          | Default     |
 |---------------------------|:---------------------------------------:|------------------:|------------:|
-| adUnitId                  | string                                  |✅                 | none        |
-| place (only IOS)          | 'top' or 'bottom'                       |🚫                 | 'top'       |
-| size                      | AdBannerType                            |✅ (or customSize) | none        |
-| customSize                | { width, height }                       |✅ (or size)       | none        |
-| onDidLoad                 | (adId?: string) => void                 |🚫                 | none        |
-| onClick                   | (adId?: string) => void                 |🚫                 | none        |
-| onWillLeaveApp            | (adId?: string) => void                 |🚫                 | none        |
-| onWillPresent             | (adId?: string) => void                 |🚫                 | none        |
-| onDidDismiss              | (adId?: string) => void                 |🚫                 | none        |
-| onDidReturnedToApplication| (adId?: string) => void                 |🚫                 | none        |
-| onDidTrackImpression      | (adId?: string, data?: string) => void  |🚫                 | none        |
-| onDidFailLoading          | (adId?: string, error?: string) => void |🚫                 | none        |
+| adUnitId                  | string                                  |❗️                 | none        |
+| place (only IOS)          | 'top' or 'bottom'                       |❔️                 | 'top'       |
+| size                      | AdBannerType                            |❗️ (or customSize) | none        |
+| customSize                | { width, height }                       |❗️ (or size)       | none        |
+| onDidLoad                 | (adId?: string) => void                 |❔️                 | none        |
+| onClick                   | (adId?: string) => void                 |❔️                 | none        |
+| onWillLeaveApp            | (adId?: string) => void                 |❔️                 | none        |
+| onWillPresent             | (adId?: string) => void                 |❔️                 | none        |
+| onDidDismiss              | (adId?: string) => void                 |❔️                 | none        |
+| onDidReturnedToApplication| (adId?: string) => void                 |❔️                 | none        |
+| onDidTrackImpression      | (adId?: string, data?: string) => void  |❔️                 | none        |
+| onDidFailLoading          | (adId?: string, error?: string) => void |❔️                 | none        |
 
 ```jsx
 import React from 'react'
 import { AdBanner } from "@beletsky/react-native-yandex-ads";
 
 // ...
-
-return (
-  <AdBanner
-    onDidLoad={() => console.log('on did load')}
-    onDidFailLoading={() => console.log('failed load')}
-    adUnitId={"R-M-ADS_ID"}
-    size={AdBannerType.BANNER_300x300}
-  />
-)
+export function App() {
+  return (
+    <AdBanner
+      onDidLoad={() => console.log('on did load')}
+      onDidFailLoading={() => console.log('failed load')}
+      adUnitId={"R-M-ADS_ID"}
+      size={AdBannerType.BANNER_300x300}
+    />
+  )
+}
 ```
 
 # Interstitial

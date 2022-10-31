@@ -20,6 +20,7 @@ type Props = {
     width: number
     height: number
   }
+  requestParams?: Record<string, string>
   onDidLoad?: (adUnitID?: string | null) => void
   onClick?: (adUnitID: string | null) => void
   onDidTrackImpression?: (adUnitID: string | null, data?: string) => void
@@ -34,6 +35,7 @@ const Banner: FC<Props> = ({
   adUnitId,
   place = 'top',
   size,
+  requestParams,
   customSize,
   onDidLoad,
   onClick,
@@ -74,6 +76,11 @@ const Banner: FC<Props> = ({
   return (
     <RNYAMBanner
       {...{
+        ...(requestParams
+          ? {
+              requestParams
+            }
+          : {}),
         adUnitID: adUnitId,
         ...(customSize
           ? {
