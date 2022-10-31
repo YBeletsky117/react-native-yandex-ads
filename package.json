@@ -1,6 +1,6 @@
 {
   "name": "@beletsky/react-native-yandex-ads",
-  "version": "1.0.1-beta.2",
+  "version": "1.0.1",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
