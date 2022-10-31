@@ -7,8 +7,8 @@ export const AdNative: FC<{
   adUnitId: string
   style?: StyleProp<ViewProps>
   width?: number
-  height?: number
-}> = ({ adUnitId, style, config, width = 100, height = 100, ...props }) => {
+  heiheightght?: number
+}> = ({ adUnitId, style, width = 100, height = 100 }) => {
   if (!adUnitId) {
     throw Error(
       '[YandexAdsNative]\nThe adUnitId parameter is not set. It is mandatory. Perhaps you forgot to specify the adUnitId of the block?'

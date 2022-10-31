@@ -1,6 +1,6 @@
 import { Platform } from 'react-native'
 
-enum RewardedEventTypes {
+export enum RewardedEventTypes {
   didReward = 'onDidReward',
   didLoad = 'onDidLoad',
   didFail = 'onDidFail',
@@ -14,7 +14,7 @@ enum RewardedEventTypes {
   willPresent = 'onWillPresent'
 }
 
-enum InterstitialEventTypes {
+export enum InterstitialEventTypes {
   didLoad = 'onDidLoad',
   didFail = 'onDidFail',
   didClick = 'onDidClick',

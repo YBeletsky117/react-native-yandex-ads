@@ -20,14 +20,14 @@ type Props = {
     width: number
     height: number
   }
-  onDidLoad: (adUnitID?: string | null) => void
-  onClick: (adUnitID: string | null) => void
-  onDidTrackImpression: (adUnitID: string | null, data?: string) => void
-  onDidFailLoading: (adUnitID: string | null, error?: string) => void
-  onWillLeaveApp: (adUnitID: string | null) => void
-  onWillPresent: (adUnitID: string | null) => void
-  onDidDismiss: (adUnitID: string | null) => void
-  onDidReturnedToApplication: (adUnitID: string | null) => void
+  onDidLoad?: (adUnitID?: string | null) => void
+  onClick?: (adUnitID: string | null) => void
+  onDidTrackImpression?: (adUnitID: string | null, data?: string) => void
+  onDidFailLoading?: (adUnitID: string | null, error?: string) => void
+  onWillLeaveApp?: (adUnitID: string | null) => void
+  onWillPresent?: (adUnitID: string | null) => void
+  onDidDismiss?: (adUnitID: string | null) => void
+  onDidReturnedToApplication?: (adUnitID: string | null) => void
 }
 
 const Banner: FC<Props> = ({
