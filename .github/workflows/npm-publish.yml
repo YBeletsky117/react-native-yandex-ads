@@ -18,9 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install dependencies
       - run: yarn install
-      - name: Start test project
       - run: yarn test
 
   publish-npm:
@@ -32,9 +30,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - name: Install dependencies
       - run: yarn install --frozen-lockfile
-      - name: Try to release it into npmjs
       - run: yarn release-it
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -50,9 +46,7 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@beletsky'
-      - name: Install dependencies
       - run: yarn install --frozen-lockfile
-      - name: Try to release it into GitHub
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
