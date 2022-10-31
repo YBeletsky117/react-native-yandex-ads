@@ -8,13 +8,13 @@ framework
 ### for npm
 
 ```sh
-npm install @beletsky/react-native-yandex-ads
+npm install @beletsky/react-native-yandex-ads@beta
 ```
 
 ### for yarn
 
 ```sh
-yarn add @beletsky/react-native-yandex-ads
+yarn add @beletsky/react-native-yandex-ads@beta
 ```
 
 ## Usage

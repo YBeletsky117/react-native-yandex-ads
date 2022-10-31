@@ -154,5 +154,7 @@
       ]
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "deepmerge": "^3.2.0"
+  }
 }
