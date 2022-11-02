@@ -1,5 +1,6 @@
 import { HostComponent, requireNativeComponent, ViewProps } from 'react-native'
 import { cacheNativeView, getCachedNativeView } from '../utils'
+// @ts-ignore
 import RES from '../resources'
 
 export interface AdNativeProps extends ViewProps {

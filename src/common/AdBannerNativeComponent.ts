@@ -1,6 +1,8 @@
 import { HostComponent, requireNativeComponent, ViewProps } from 'react-native'
 import { cacheNativeView, getCachedNativeView } from '../utils'
+// @ts-ignore
 import type { AdBannerType } from '../resources'
+// @ts-ignore
 import RES from '../resources'
 
 export type NativeEventType = {

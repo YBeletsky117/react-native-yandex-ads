@@ -3,10 +3,12 @@ import { initialize } from './utils'
 export { default as AdRewarded } from './rewarded'
 export { default as AdInterstitial } from './interstitial'
 export { default as AdBanner } from './banner'
+// @ts-ignore
 export { InterstitialEventTypes, RewardedEventTypes } from './resources'
 export {
   AdBannerType,
   YA_NATIVE_COMPONENTS as NativeAdTypes
+  // @ts-ignore
 } from './resources'
 // @ts-ignore
 import { AdNative as AdContainer } from './native'

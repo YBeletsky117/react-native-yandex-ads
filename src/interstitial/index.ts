@@ -1,4 +1,5 @@
 import { NativeEventEmitter, NativeModules } from 'react-native'
+// @ts-ignore
 import RES from '../resources'
 
 const module = NativeModules[RES.MODULES.INTERSTITIAL]

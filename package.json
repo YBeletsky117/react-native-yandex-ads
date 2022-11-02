@@ -6,7 +6,7 @@
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
   "react-native": "lib/module/index",
-  "source": "lib/module/index",
+  "source": "src/index",
   "files": [
     "src2",
     "lib",
@@ -157,8 +157,5 @@
         }
       ]
     ]
-  },
-  "dependencies": {
-    "deepmerge": "^3.2.0"
   }
 }

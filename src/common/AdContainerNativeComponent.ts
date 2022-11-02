@@ -1,5 +1,6 @@
 import { HostComponent, requireNativeComponent, ViewStyle } from 'react-native'
 import { cacheNativeView, getCachedNativeView } from '../utils'
+// @ts-ignore
 import RES from '../resources'
 
 type AdContainerComponentType = {

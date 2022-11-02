@@ -1,4 +1,5 @@
 import { NativeModules, Platform } from 'react-native'
+// @ts-ignore
 import RES from '../resources'
 
 export const initialize = (
