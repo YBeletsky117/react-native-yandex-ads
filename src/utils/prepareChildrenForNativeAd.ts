@@ -7,18 +7,21 @@ export const prepareChildrenForNativeAd = (
   children: ReactNode | ReactNode[],
   uniqSuffix: string
 ) => {
-  React.Children.forEach(children, prepareChildForNativeAd(uniqSuffix))
-  React.Children.toArray(children).forEach((view) => {
-    React.Children.toArray(view.props.children).forEach((view2) =>
+  const _c = children
+  if (_c?.length) {
+    React.Children.forEach(_c, prepareChildForNativeAd(uniqSuffix))
+    React.Children.toArray(_c).forEach((view) => {
+      React.Children.toArray(view.props.children).forEach((view2) =>
+        React.Children.forEach(
+          view2.props.children,
+          prepareChildForNativeAd(uniqSuffix)
+        )
+      )
       React.Children.forEach(
-        view2.props.children,
+        view.props.children,
         prepareChildForNativeAd(uniqSuffix)
       )
-    )
-    React.Children.forEach(
-      view.props.children,
-      prepareChildForNativeAd(uniqSuffix)
-    )
-  })
-  return children
+    })
+  }
+  return _c
 }

@@ -15,24 +15,24 @@ import RES, {
   YA_NATIVE_COMPONENTS as componentsName,
   YA_NATIVE_ID
 } from '../resources'
-import { prepareChildrenForNativeAd as prepare, ErrorException } from '../utils'
+import { ErrorException } from '../utils'
 
-const createFragment = (viewId: number, uniqId: string) => {
+const createFragment = (viewId: number) => {
   const command = UIManager.getViewManagerConfig(RES.VIEW_MANAGERS.NATIVE)
     .Commands.create
   if (command) {
     UIManager.dispatchViewManagerCommand(viewId, command.toString(), [
       viewId,
-      `${YA_NATIVE_ID.title}${uniqId}`,
-      `${YA_NATIVE_ID.body}${uniqId}`,
-      `${YA_NATIVE_ID.warning}${uniqId}`,
-      `${YA_NATIVE_ID.sponsored}${uniqId}`,
-      `${YA_NATIVE_ID.age}${uniqId}`,
-      `${YA_NATIVE_ID.domain}${uniqId}`,
-      `${YA_NATIVE_ID.icon}${uniqId}`,
-      `${YA_NATIVE_ID.favicon}${uniqId}`,
-      `${YA_NATIVE_ID.feedback}${uniqId}`,
-      `${YA_NATIVE_ID.media}${uniqId}`
+      YA_NATIVE_ID.title,
+      YA_NATIVE_ID.body,
+      YA_NATIVE_ID.warning,
+      YA_NATIVE_ID.sponsored,
+      YA_NATIVE_ID.age,
+      YA_NATIVE_ID.domain,
+      YA_NATIVE_ID.icon,
+      YA_NATIVE_ID.favicon,
+      YA_NATIVE_ID.feedback,
+      YA_NATIVE_ID.media
     ])
   }
 }
@@ -63,8 +63,6 @@ export const AdNative: FC<{
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoading, setLoading] = useState(true)
-
-  const uniqSuffix = Date.now().toString() + Math.random().toString(16).slice(2)
 
   if (!React.Children.count(props.children)) {
     throw ErrorException('A native ad block must contain children inside it')
@@ -122,15 +120,14 @@ export const AdNative: FC<{
 
               if (viewId) {
                 setLoading(true)
-                console.log('Reklama: ' + uniqSuffix)
-                createFragment(viewId, uniqSuffix)
+                createFragment(viewId)
               }
             }
           }
         }}
         style={[style, defStyle.content]}
       >
-        {prepare(props.children, uniqSuffix)}
+        {props.children}
       </View>
     </AdNativeComponent>
   )
